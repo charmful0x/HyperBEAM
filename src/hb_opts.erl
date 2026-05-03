@@ -201,6 +201,14 @@ raw_default_message() ->
         %% Choice of remote nodes for tasks that are not local to hyperbeam.
         <<"gateway">> => ?DEFAULT_GATEWAY,
         <<"bundler-ans104">> => <<"https://up.arweave.net:443">>,
+        <<"ao-payment-token">> =>
+            <<"0syT13r0s0tgPmIed95bJnuSqaD29HQNN8D3ElLSrsc">>,
+        <<"ao-payment-mainnet-url">> => <<"https://state.forward.computer">>,
+        <<"ao-submit-url">> => <<"https://mu.ao-testnet.xyz">>,
+        <<"swap-device">> => <<"swap@1.0">>,
+        <<"swap-bps">> => 10000,
+        <<"swap-arweave-device">> => <<"arweave@2.9">>,
+        <<"swap-min-ar-confirmations">> => 1,
         %% Location of the wallet keyfile on disk that this node will use.
         <<"priv-key-location">> => <<"hyperbeam-key.json">>,
         %% The time-to-live that should be specified when we register
@@ -252,7 +260,6 @@ raw_default_message() ->
             #{<<"name">> => <<"patch@1.0">>, <<"module">> => dev_patch},
             #{<<"name">> => <<"poda@1.0">>, <<"module">> => dev_poda},
             #{<<"name">> => <<"process@1.0">>, <<"module">> => dev_process},
-            #{<<"name">> => <<"process-ledger@1.0">>, <<"module">> => dev_process_ledger},
             #{<<"name">> => <<"profile@1.0">>, <<"module">> => dev_profile},
             #{<<"name">> => <<"push@1.0">>, <<"module">> => dev_push},
             #{<<"name">> => <<"query@1.0">>, <<"module">> => dev_query},

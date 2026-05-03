@@ -14,9 +14,6 @@
 -include_lib("eunit/include/eunit.hrl").
 -endif.
 
--define(DEFAULT_AO_TOKEN, <<"0syT13r0s0tgPmIed95bJnuSqaD29HQNN8D3ElLSrsc">>).
--define(DEFAULT_MAINNET_URL, <<"https://state.forward.computer">>).
-
 %% @doc Verify and import an AO token payment into the local ledger.
 ingest(Base, Req, NodeMsg) ->
     case verify(Base, Req, NodeMsg) of
@@ -47,7 +44,7 @@ verify(_Base, Req, NodeMsg) ->
         hb_ao:get(
             <<"token">>,
             Req,
-            hb_opts:get(ao_payment_token, ?DEFAULT_AO_TOKEN, NodeMsg),
+            hb_opts:get(ao_payment_token, NodeMsg),
             NodeMsg
         ),
     Ledger =
@@ -135,7 +132,7 @@ fetch_result(Token, Slot, NodeMsg) ->
     fetch_json(URL).
 
 mainnet_url(NodeMsg) ->
-    URL0 = hb_opts:get(ao_payment_mainnet_url, ?DEFAULT_MAINNET_URL, NodeMsg),
+    URL0 = hb_opts:get(ao_payment_mainnet_url, NodeMsg),
     case binary:last(URL0) of
         $/ -> binary:part(URL0, 0, byte_size(URL0) - 1);
         _ -> URL0
