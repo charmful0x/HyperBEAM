@@ -34,6 +34,7 @@ native/hb_beamr/*.d
 priv/*
 .DS_STORE
 cache-*
+swap-*.etf
 
 *.dot
 *.svg
